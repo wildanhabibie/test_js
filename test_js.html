@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function result(input) {
+      // Urutkan array input secara numerik
+      input.sort (function (a, b) {
+        return a - b;
+      });
+
+      // Tentukan indeks tengah
+      var middle = Math.floor (input.length / 2);
+
+      // Jika panjang array ganjil, kembalikan elemen di indeks tengah
+      if (input.length % 2 === 1) {
+        return input [middle];
+      }
+
+      // Jika panjang array genap, kembalikan rata-rata dari dua elemen di tengah
+      else {
+        return (input [middle - 1] + input [middle]) / 2;
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Buat input teks untuk memasukkan array -->
+  <input type="text" id="input" placeholder="Masukkan array, pisahkan dengan koma">
+
+  <!-- Buat tombol untuk menjalankan fungsi result -->
+  <button onclick="document.getElementById('output').innerHTML = result(document.getElementById('input').value.split(',').map(Number))">Cari Median</button>
+
+  <!-- Buat elemen p untuk menampilkan hasil -->
+  <p id="output"></p>
+</body>
+</html>
